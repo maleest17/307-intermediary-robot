@@ -2,3 +2,4 @@
 Обновлено: 
 + backlog
 + схема КТС
++ use-case diagram
