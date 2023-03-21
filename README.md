@@ -3,3 +3,4 @@
 + backlog
 + схема КТС
 + use-case diagram
++ конченный автомат
