@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-enum EState {Work, Drinking, Rotate, Move};
+enum EState {Work, Route, Rotate, Move};
 class Detector {
 public:
 	bool ClientExists();
@@ -33,7 +33,7 @@ public:
 
 	void Events() {
 		switch (state) {
-		case Drinking:
+		case Route:
 			if (det->DeltaAngle(0.5)) {
 				state = Rotate;
 				if (det->DeltaDistance(1)) {
@@ -42,17 +42,17 @@ public:
 			}
 		case Work:
 			if (det->ClientExists()) {
-				state = Drinking;
+				state = Route;
 				break;
 			}
 		
 		case Rotate:
 			com->rotate(1);
-			state = Drinking;
+			state = Route;
 			break;
 		}
 	}
-	void Running() {
+	void Run() {
 		while (1)
 			Events();
 	}
@@ -61,7 +61,7 @@ public:
 
 
 int main() {
-	Robot r;
-	r.Running();
+	Robot rob;
+	rob.Run();
 }
 
