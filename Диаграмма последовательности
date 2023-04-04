@@ -1,0 +1,18 @@
+@startuml
+actor User #violet
+participant tgBot
+participant Server
+participant Camera
+participant Robot
+
+
+User -> tgBot: Order
+tgBot -> Server: LocateRobot
+tgBot -> Server: LocateUserScreen
+Camera -> Server: updateImage
+Camera -> Server: getImage
+Server -> Robot: Rotate
+Server -> Robot: Move
+Server -> tgBot: Robot_Started
+tgBot -> User:  Delivery_is_started
+@enduml
