@@ -1,0 +1,37 @@
+@startuml
+class Robot{
+posX: int;
+posY: int;
+status: int;
+void move();
+void rotate();
+void stop();
+}
+
+class Camera{
+void getIm();
+void updIm();
+}
+
+class tgBot{
+void Order();
+void Message();
+}
+class User{
+void Order();
+}
+
+class Server{
+void LocationRob();
+void LocationScr();
+void Route();
+void angle();
+void distance();
+}
+
+Robot --> Server
+Server <-- Camera
+Server <-- tgBot
+tgBot <-- User
+tgBot --> User
+@enduml
