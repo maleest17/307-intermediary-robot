@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
 
-enum EState { Work, Drinking, Rotate, Move};
+enum EState {Work, Drinking, Rotate, Move};
 class Detector {
 public:
 	bool ClientExists();
-	bool hasDeltaAngle(float det);
-	bool hasDeltaDistance(float det);
+	bool DeltaAngle(float det);
+	bool DeltaDistance(float det);
 };
 
 class Commands {
@@ -17,7 +17,7 @@ public:
 
 class Messages {
 	void Plug() {
-		cout << "Пользователь попил" << endl;
+		cout << "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РїРѕРїРёР»" << endl;
 	}
 
 };
@@ -34,9 +34,9 @@ public:
 	void Events() {
 		switch (state) {
 		case Drinking:
-			if (det->hasDeltaAngle(0.5)) {
+			if (det->DeltaAngle(0.5)) {
 				state = Rotate;
-				if (det->hasDeltaDistance(1)) {
+				if (det->DeltaDistance(1)) {
 					state = Move;
 				}
 			}
